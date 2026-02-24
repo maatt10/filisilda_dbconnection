@@ -33,12 +33,19 @@ label{
   margin-bottom:6px;
 }
 
-input{
+input,
+textarea,
+select{
   width:100%;
   padding:10px;
   border:1px solid #ccc;
   border-radius:6px;
   margin-bottom:15px;
+  font-family:inherit;
+}
+
+textarea{
+  resize:vertical;
 }
 
 button{
@@ -52,11 +59,6 @@ button{
 
 button:hover{
   background:#0b5ed7;
-}
-
-.message{
-  color:red;
-  margin-bottom:15px;
 }
 
 a{
@@ -75,7 +77,8 @@ table{
   margin-top:15px;
 }
 
-table th, table td{
+table th,
+table td{
   border:1px solid #ddd;
   padding:10px;
   text-align:left;

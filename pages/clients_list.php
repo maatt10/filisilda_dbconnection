@@ -4,7 +4,10 @@ $result = mysqli_query($conn, "SELECT * FROM clients ORDER BY client_id DESC");
 ?>
 <!doctype html>
 <html>
-<head><meta charset="utf-8"><title>Clients</title></head>
+<head>
+  <link rel="stylesheet" href="../style.css">
+  <meta charset="utf-8"><title>Clients</title>
+</head>
 <body>
 <?php include "../nav.php"; ?>
  
