@@ -1,89 +1,490 @@
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+/* style.css - Updated with Better Form Styling */
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-  font-family: Arial, Helvetica, sans-serif;
-  background:#f4f6f9;
-  padding:40px 20px;
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #2c3e50;
+    padding: 20px;
 }
 
-.wrapper{
-  max-width:900px;
-  margin:0 auto;
-  background:#ffffff;
-  padding:30px;
-  border-radius:8px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+/* Navigation */
+.nav-links {
+    background-color: #2c3e50; /* Dark grey */
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-h2{
-  margin-bottom:20px;
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
 }
 
-form{
-  max-width:500px;
+.nav-links a:hover {
+    background-color: #3498db; /* Blue */
 }
 
-label{
-  font-weight:600;
-  display:block;
-  margin-bottom:6px;
+/* Main content wrapper */
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-input,
-textarea,
-select{
-  width:100%;
-  padding:10px;
-  border:1px solid #ccc;
-  border-radius:6px;
-  margin-bottom:15px;
-  font-family:inherit;
+/* Headings */
+h2 {
+    color: #2c3e50; /* Dark grey */
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #3498db; /* Blue */
+    font-size: 28px;
+    text-align: center;
 }
 
-textarea{
-  resize:vertical;
+/* Stats Cards */
+.stats {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
 }
 
-button{
-  padding:10px 16px;
-  background:#0d6efd;
-  border:none;
-  color:white;
-  border-radius:6px;
-  cursor:pointer;
+.stats li {
+    background: #193C58; /* Blue */
+    color: white;
+    padding: 25px 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
 }
 
-button:hover{
-  background:#0b5ed7;
+.stats li b {
+    display: block;
+    font-size: 32px;
+    margin-top: 10px;
+    color: #ff7f50; /* Coral */
 }
 
-a{
-  color:#0d6efd;
-  text-decoration:none;
-  font-weight:600;
+/* Action Links */
+.links {
+    margin: 25px 0;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-a:hover{
-  text-decoration:underline;
+.links a {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #3498db; /* Blue */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
 }
 
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:15px;
+.links a:last-child {
+    background-color: #ff7f50; /* Coral */
 }
 
-table th,
-table td{
-  border:1px solid #ddd;
-  padding:10px;
-  text-align:left;
+.links a:hover {
+    background-color: #145078;
 }
 
-table th{
-  background:#f1f3f6;
+.links a:last-child:hover {
+    background-color: #ff6346;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+table th {
+    background-color: #2c3e50; /* Dark grey */
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+table tr:hover {
+    background-color: #f8f9fa;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table td a {
+    color: #3498db; /* Blue */
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+table td a:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Forms - Enhanced Styling */
+form {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+form label {
+    display: block;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Text inputs */
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 25px;
+    background-color: white;
+    transition: all 0.2s;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+}
+
+/* Textarea - Description box styling */
+form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 25px;
+    background-color: white;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    resize: vertical;
+    min-height: 100px;
+    transition: all 0.2s;
+}
+
+form textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+}
+
+/* Select dropdown - for Active/Yes fields */
+form select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 25px;
+    background-color: white;
+    cursor: pointer;
+    appearance: none; /* Remove default arrow */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232c3e50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+}
+
+form select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+}
+
+/* Style the yes/no options */
+form select option {
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* Radio buttons and checkboxes - if you prefer those over select */
+form .radio-group {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+    padding: 10px 0;
+}
+
+form .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+form .radio-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #3498db; /* Blue radio button */
+}
+
+form .radio-option label {
+    margin-bottom: 0;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: normal;
+}
+
+/* Alternative: Toggle switch for yes/no */
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+.toggle-switch span {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.toggle-switch label {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    margin-bottom: 0;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .2s;
+    border-radius: 30px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .2s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: #3498db;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(30px);
+}
+
+/* Form button */
+form button {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+form button:hover {
+    background-color: #2980b9;
+}
+
+/* Message Box */
+.message {
+    padding: 15px 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    background-color: #ff7f50;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(255, 127, 80, 0.3);
+    max-width: 600px;
+    text-align: center;
+}
+
+/* "Add" links */
+p a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f0f7ff;
+    border-radius: 6px;
+    margin: 10px 0;
+}
+
+p a:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Hide the original hr */
+hr {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .wrapper {
+        padding: 20px;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+    }
+    
+    .nav-links a {
+        text-align: center;
+    }
+    
+    .stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .links a {
+        width: 100%;
+        text-align: center;
+    }
+    
+    form {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    
+    form .radio-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* Simple Card Summary */
+.payment-summary {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.summary-card {
+    flex: 1;
+    min-width: 150px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    text-align: center;
+    border-top: 5px solid transparent;
+}
+
+.summary-card .label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.summary-card .amount {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.total-cost .amount {
+    color: #3498db; /* Blue */
+}
+
+.total-paid .amount {
+    color: #27ae60; /* Green */
+}
+
+.balance .amount {
+    color: #ff7f50; /* Coral */
+    font-size: 36px;
 }
