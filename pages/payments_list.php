@@ -1,42 +1,97 @@
 <?php
 include "../db.php";
  
-$sql = "
-SELECT p.*, b.booking_date, c.full_name
-FROM payments p
-JOIN bookings b ON p.booking_id = b.booking_id
-JOIN clients c ON b.client_id = c.client_id
-ORDER BY p.payment_id DESC
-";
-$result = mysqli_query($conn, $sql);
+ 
+/* ============================
+   SOFT DELETE (Deactivate)
+   ============================ */
+if (isset($_GET['delete_id'])) {
+  $delete_id = $_GET['delete_id'];
+ 
+ 
+  // Soft delete (set is_active to 0)
+  mysqli_query($conn, "UPDATE services SET is_active=0 WHERE service_id=$delete_id");
+ 
+ 
+  header("Location: services_list.php");
+  exit;
+}
+ 
+ 
+/* ============================
+   FETCH ALL SERVICES
+   ============================ */
+$result = mysqli_query($conn, "SELECT * FROM services ORDER BY service_id DESC");
 ?>
+ 
+ 
 <!doctype html>
 <html>
 <head>
-    <link rel="stylesheet" href="../style.css">
-    <meta charset="utf-8">
-    <title>Payments</title>
+  <link rel="stylesheet" href="../style.css">
+  <meta charset="utf-8">
+  <title>Services</title>
 </head>
 <body>
+ 
+ 
 <?php include "../nav.php"; ?>
  
-<h2>Payments</h2>
+ 
+<h2>Services</h2>
+ 
+ 
+<p>
+  <a href="services_add.php">+ Add Service</a>
+</p>
+ 
  
 <table border="1" cellpadding="8">
   <tr>
-    <th>ID</th><th>Client</th><th>Booking ID</th><th>Amount</th><th>Method</th><th>Date</th>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Rate</th>
+    <th>Status</th>
+    <th>Action</th>
   </tr>
-  <?php while($p = mysqli_fetch_assoc($result)) { ?>
+ 
+ 
+  <?php while($row = mysqli_fetch_assoc($result)) { ?>
     <tr>
-      <td><?php echo $p['payment_id']; ?></td>
-      <td><?php echo $p['full_name']; ?></td>
-      <td><?php echo $p['booking_id']; ?></td>
-      <td>₱<?php echo number_format($p['amount_paid'],2); ?></td>
-      <td><?php echo $p['method']; ?></td>
-      <td><?php echo $p['payment_date']; ?></td>
+      <td><?php echo $row['service_id']; ?></td>
+      <td><?php echo $row['service_name']; ?></td>
+      <td>₱<?php echo number_format($row['hourly_rate'],2); ?></td>
+ 
+ 
+      <td>
+        <?php
+          if ($row['is_active'] == 1) {
+            echo "Active";
+          } else {
+            echo "Inactive";
+          }
+        ?>
+      </td>
+ 
+ 
+      <td>
+        <a href="services_edit.php?id=<?php echo $row['service_id']; ?>">Edit</a>
+ 
+ 
+        <?php if ($row['is_active'] == 1) { ?>
+          |
+          <a href="services_list.php?delete_id=<?php echo $row['service_id']; ?>"
+             onclick="return confirm('Deactivate this service?')">
+             Deactivate
+          </a>
+        <?php } ?>
+      </td>
     </tr>
   <?php } ?>
+ 
+ 
 </table>
+ 
  
 </body>
 </html>
